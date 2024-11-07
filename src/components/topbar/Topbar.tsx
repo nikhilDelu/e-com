@@ -1,15 +1,26 @@
-import React from "react";
+import { Circle, Search, ShoppingBagIcon } from "lucide-react";
+import Link from "next/link";
 
 export default function Topbar() {
   return (
-    <nav className="flex justify-between items-center bg-black text-white p-4 py-6 border-b-gray-800 border-b-1">
-      <div className="size-7 text-center aspect-square border border-gray-600 rounded-lg cursor-pointer">
-        L
+    <nav className="bg-black flex justify-between items-center backdrop-blur-sm text-white px-6 md:px-6 lg:px-8 border-b border-white h-14 fixed top-0 left-0 right-0 z-50">
+      <Link href={"/"}>
+        <Circle />
+      </Link>
+      <div className="relative flex-1 p-2 max-w-sm m-0 ">
+        <input
+          type="text"
+          placeholder="Search products..."
+          className="pl-10 rounded-2xl text-xs  backdrop-blur-sm bg-white/15 p-2 w-full"
+        />
+        <Search
+          className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400"
+          size={20}
+        />
       </div>
-      <div>Store</div>
-      <div className="size-7 text-center aspect-square border border-gray-600 rounded-lg cursor-pointer">
-        C
-      </div>
+      <Link href={"/cart"}>
+        <ShoppingBagIcon />
+      </Link>
     </nav>
   );
 }

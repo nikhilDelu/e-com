@@ -1,16 +1,17 @@
+import Nav from "@/components/nav/Nav";
 import Topbar from "@/components/topbar/Topbar";
 
-export default function RootLayout({
+export default function ClientLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`antialiased h-screen flex flex-col`}>
-        <Topbar />
-        <main className="h-full">{children}</main>
-      </body>
-    </html>
+    <main
+      className={`antialiased h-screen flex flex-col relative  text-black pt-14`}
+    >
+      <Topbar />
+      <section className="h-full w-full">{children}</section>
+    </main>
   );
 }
